@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/header.css">
+    <!-- <meta http-equiv="refresh" content="2"> -->
+    <title>Document</title>
+</head>
+<body>
+
+
+    <header id="header">
+        <a href="index.html"><i class="bi bi-globe-americas"></i></a>
+        <div class="flex">
+
+            <nav class="navegacao">
+                <a href="#">about</a>
+                <a href="#">cadastro</a>
+                <a href="#">Dashbord</a>
+                <a href="#">Login</a>
+                <a href="#">conteudo</a>
+            </nav>
+        </div><!-- div da navegação-->
+
+    </header>
+        
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span><!-- ionic.io nome do site do icone -->
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon> </span>
+                    <input type="password" required>
+                    <label>Senha</label>
+                </div>
+                <div class="lembrar-senha">
+                    <label><input type="checkbox">Lembrar senha</label>
+                    <a href="#">Esquceu senha</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="btn-login">
+                    <p>Esquece sua conta?<a href="#">Sei la</a></p>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    
+    <script src="rolagem-header.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    
+</body>
+</html>

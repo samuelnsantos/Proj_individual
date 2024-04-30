@@ -1,0 +1,50 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    background-image: url(../img/proveta.jpg);
+    background-repeat: no-repeat;  
+    background-size: cover;
+    background-position: top;
+} /* imagem de fundo */
+
+
+header{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 40px 4%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+
+.logo{
+    font-size: 30px;
+    color: white;
+    user-select: none;
+}
+
+.navegacao a{
+    position: relative;
+    font-size: 28px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navegacao :hover{
+    border-radius: 10px;
+    text-decoration: underline 2px;
+}
