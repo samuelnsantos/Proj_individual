@@ -1,20 +1,19 @@
 body{
-    background-image: url(../img/homem_tocandoO.jpg);
+    background-image: url(../img/pierre-goiffon-7dHl5cGfLto-unsplash.jpg);
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
 }
 
-
 .container{
-    margin: 100px;
+    margin: 80px;
     display: flex;
     position: relative;
     width: 400px;
-    width: 390px;
+    height: 440px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
@@ -24,24 +23,27 @@ body{
     align-items: center;
 }
 
-
-.login-box{
+.container .login-box{
     width: 100%;
     padding: 40px;
 }
 
-.login-box h2{
+.login-box h2 {
     font-size: 2em;
-    color: #000;
+    color: #f0f0f0;
     text-align: center;
 }
 
 .input-box{
     position: relative;
     width: 100%;
-    height: 37px;
-    border-bottom: 2px solid #000;
+    height: 50px;
+    border-bottom: 2px solid #f0f0f0;
     margin: 30px 0;
+}
+
+.input-box ion-icon {
+    color: #f0f0f0;
 }
 
 .input-box label{
@@ -50,7 +52,7 @@ body{
     left: 5px;
     transform: translateY(-50%);
     font-size: 1em;
-    color: #000;
+    color: #f0f0f0;
     font-weight: 500;
     pointer-events: none;
     transition: .5s;
@@ -63,12 +65,13 @@ body{
 
 .input-box input{
     width: 100%;
+    height: 50px;
     background: transparent;
     border: none;
     outline: none;
     font-size: 1em;
     font-weight: 600;
-    color: #000;
+    color: #f0f0f0;
     padding: 0 35px 0 5px;
 }
 
@@ -76,13 +79,31 @@ body{
     position: absolute;
     right: 8px;
     font-size: 1.2em;
-    color: #000;
+    color: #f0f0f0;
     line-height: 57px;
 }
 
-.lembrar-senha{
+.btn{
+    margin-top: 40px;
+    width: 100%;
+    height: 45px;
+    background: #0f0f0f;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #f0f0f0;
+    font-weight: 500;
+}
+
+.btn:hover{
+    background-color: #161616ec;
+}
+
+/* .lembrar-senha{
     font-size: .9em;
-    color: #000;
+    color: #f0f0f0;
     font-weight: 500;
     margin: -15px 0 15px;
     display: flex;
@@ -90,35 +111,23 @@ body{
 }
 
 .lembrar-senha label input{
-    accent-color: #000;
+    accent-color: #f0f0f0;
     margin-right: 3px;
 }
 
 .lembrar-senha a {
-    color: #000;
+    color: #f0f0f0;
     text-decoration: none;
 }
 
 .lembrar-senha a:hover {
     text-decoration: underline;
-}
+} */
 
-.btn{
-    width: 100%;
-    height: 45px;
-    background: #000;
-    border: none;
-    outline: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1em;
-    color: #fff;
-    font-weight: 500;
-}
 
-.btn-login {
+/* .btn-login {
     font-size: .9em;
-    color: #000;
+    color: #f0f0f0;
     text-align: center;
     font-weight: 500;
     margin: 25px 0 10px;
@@ -132,4 +141,4 @@ body{
 
 .btn-login p a:hover {
     text-decoration: underline;
-}
+} */

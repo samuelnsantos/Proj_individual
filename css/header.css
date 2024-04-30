@@ -31,14 +31,14 @@ header.rolagem-header{
     background-color: #1a1a1a;
     padding-top: 30px;
     height: 13%;
-    color: #fff;  
+    color: #f0f0f0;  
     transition: 0.6s;
 }
 
 .navegacao a{
     position: relative;
     font-size: 28px;
-    color: #fff;
+    color: #f0f0f0;
     text-decoration: none;
     font-weight: 500;
     margin-left: 40px;
