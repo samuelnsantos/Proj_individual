@@ -4,10 +4,13 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
-/* 
-html{
-    height: 5vh;
-} */
+
+a img {
+    margin: 10px;
+    margin-left: 120px;
+    height: 100px;
+    border-radius: 100%;
+} /* Imagem da logo */
 
 header{
     position: fixed;
@@ -21,18 +24,13 @@ header{
     z-index: 99;
 }
 
-.logo{
-    font-size: 18px;
-    color: white;
-    user-select: none;
-}
-
 header.rolagem-header{
     background-color: #1a1a1a;
     padding-top: 30px;
     height: 13%;
     color: #f0f0f0;  
     transition: 0.6s;
+    border-radius: 13px;
 }
 
 .navegacao a{

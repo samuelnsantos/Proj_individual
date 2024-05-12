@@ -1,32 +1,27 @@
 body{
-    background-image: url(../img/pierre-goiffon-7dHl5cGfLto-unsplash.jpg);
-    display: flex;
+    background-image: url(../img/homem-estudando.jpg);
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
+    display: flex;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
 }
 
-html{
-    background-color: #000;
-}
-
-
 .container{
-    margin-top: 80px;
-    margin-bottom: 40px;
+    margin-top: 82px;
     display: flex;
     position: relative;
     width: 400px;
-    height: 500px;
+    height: 560px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
     backdrop-filter: blur(20px);
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     justify-content: center;
-    align-items: center;
+    align-items: center; 
+    margin-bottom: 0px;
 }
 
 
@@ -47,23 +42,15 @@ html{
     width: 100%;
     height: 50px;
     border-bottom: 2px solid  #f0f0f0;
-    margin: 30px 0;
+    margin: 40px 0;
 }
 
 .input-box ion-icon {
     color: #f0f0f0;
 }
 
-.input-box label{
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    font-size: 1em;
-    color:  #f0f0f0;
-    font-weight: 500;
-    pointer-events: none;
-    transition: .5s;
+::placeholder{
+    color: #f0f0f0;
 }
 
 .input-box input:focus~label,
@@ -78,9 +65,16 @@ html{
     border: none;
     outline: none;
     font-size: 1em;
-    font-weight: 600;
+    font-weight: 600000;
     color: #f0f0f0;
     padding: 0 35px 0 5px;
+    margin-bottom: 15px;
+}
+
+.resultado{
+    color: red;
+    font-size: 18px;
+    font-family: sans-serif;
 }
 
 .input-box .icon{
@@ -102,50 +96,9 @@ html{
     font-size: 1em;
     color: #f0f0f0;
     font-weight: 500;
+    margin-top: 10px;
 }
 
 .btn:hover{
     background-color: #161616ec;
 }
-
-/* .lembrar-senha{
-    font-size: .9em;
-    color: #162938;
-    font-weight: 500;
-    margin: -15px 0 15px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.lembrar-senha label input{
-    accent-color: #000;
-    margin-right: 3px;
-}
-
-.lembrar-senha a {
-    color: #162938;
-    text-decoration: none;
-}
-
-.lembrar-senha a:hover {
-    text-decoration: underline;
-} */
-
-
-/* .btn-login {
-    font-size: 1em;
-    color: #161616;
-    text-align: center;
-    font-weight: 500;
-    margin: 25px 0 10px;
-}
-
-.btn-login p a {
-    color: #161616;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.btn-login p a:hover {
-    text-decoration: underline;
-} */

@@ -1,5 +1,5 @@
 body{
-    background-image: url(../img/pierre-goiffon-7dHl5cGfLto-unsplash.jpg);
+    background-image: url(../img/homem-estudando.jpg);
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
@@ -9,7 +9,7 @@ body{
 }
 
 .container{
-    margin: 80px;
+    margin: 100px;
     display: flex;
     position: relative;
     width: 400px;
@@ -40,27 +40,16 @@ body{
     height: 50px;
     border-bottom: 2px solid #f0f0f0;
     margin: 30px 0;
-}
-
-.input-box ion-icon {
-    color: #f0f0f0;
-}
-
-.input-box label{
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    font-size: 1em;
-    color: #f0f0f0;
-    font-weight: 500;
-    pointer-events: none;
-    transition: .5s;
+    margin-bottom: 50px;
 }
 
 .input-box input:focus~label,
 .input-box input:valid~label{
     top: -5px;
+}
+
+::placeholder {
+    color: #f0f0f0;
 }
 
 .input-box input{
@@ -83,6 +72,12 @@ body{
     line-height: 57px;
 }
 
+.resultado {
+    font-size: 18px;
+    color: #FF0000;
+    font-family: sans-serif;
+}
+
 .btn{
     margin-top: 40px;
     width: 100%;
@@ -100,45 +95,3 @@ body{
 .btn:hover{
     background-color: #161616ec;
 }
-
-/* .lembrar-senha{
-    font-size: .9em;
-    color: #f0f0f0;
-    font-weight: 500;
-    margin: -15px 0 15px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.lembrar-senha label input{
-    accent-color: #f0f0f0;
-    margin-right: 3px;
-}
-
-.lembrar-senha a {
-    color: #f0f0f0;
-    text-decoration: none;
-}
-
-.lembrar-senha a:hover {
-    text-decoration: underline;
-} */
-
-
-/* .btn-login {
-    font-size: .9em;
-    color: #f0f0f0;
-    text-align: center;
-    font-weight: 500;
-    margin: 25px 0 10px;
-}
-
-.btn-login p a {
-    color: #000;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.btn-login p a:hover {
-    text-decoration: underline;
-} */

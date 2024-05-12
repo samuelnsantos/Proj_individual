@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    digite seu email:
+    <input type="text" id="input_email">
+    <div id="resultado_email"></div>
+    
+    digite sua senha:
+    <input type="text" id="input_senha">
+    <div id="resultado_senha"></div>
+    
+    <button onclick="logar()">login</button>
+
+</body>
+</html>
+
+<script>
+
+    function logar(){
+
+        let senha = input_senha.value
+        let email = input_email.value
+
+
+        if (senha == "" ){
+            resultado_senha.innerHTML = `Senha esta vazia`
+        }
+
+        if (email == ""){
+            resultado_email.innerHTML = `email esta vazia`
+        }
+    }
+
+
+</script>

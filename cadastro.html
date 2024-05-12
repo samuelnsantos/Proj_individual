@@ -6,72 +6,59 @@
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/cadastro.css">
     <!-- <meta http-equiv="refresh" content="2"> -->
-    <title>Document</title>
+    <title>index</title>
 </head>
 <body>
-
-
+<!-- 
     <header id="header">
-        <a href="index.html"><i class="bi bi-globe-americas"></i></a>
         <div class="flex">
-            <a class="logo"><i></i></a>
+          
             <nav class="navegacao">
                 <a href="principal.html">Home</a>
-                <a href="">About</a>
-                <a href="">services</a>
+                <a href="pagina01.html">Conteúdo</a>
+                <a href="">Sobre mim</a>
                 <a href="login.html">Login</a>
-                <a href="cadastro.html">Cadastrar</a>
+                <a href="cadastro.html">Cadastro</a>
             </nav>
-        </div><!-- div da navegação-->
+        </div>
 
     </header>
-        
+         -->
     <div class="container">
         <div class="cadastro-box">
 
             <h2>Cadastro</h2>
-            <form action="#">
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span><!-- ionic.io nome do site do icone -->
-                    <input type="email" required>
-                    <label>Email</label>
-                </div>
+            <div class="input-box">
+                <span class="icon"><img src="img/e-mail.png" alt="ícone de E-mail"></span>
+                <input id="input_email" type="text" onkeyup="validar_email()" placeholder="Email">
+                <span id="resultado_email" class="resultado"></span><br>
+            </div>
 
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="call-outline"></ion-icon></span>
-                    <input type="tel" required>
-                    <label>Telefone</label>
-                </div>
+            <div class="input-box">
+                <span class="icon"><img src="img/telefone.png" alt="ícone de telefone"></span>
+                <input id="input_tel" type="tel" onkeyup="validar_tel()" placeholder="Telefone">
+                <span id="resultado_tel" class="resultado"></span>
+            </div>
 
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon> </span>
-                    <input type="password" required>
-                    <label>Senha</label>
-                </div>
-                
-                <div class="input-box">
-                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon> </span>
-                    <input type="password" required>
-                    <label>Confirmar Senha</label>
-                </div>
-                
-                <div class="lembrar-senha">
-                    <a href="#"></a>
-                </div>
+            <div class="input-box">
+                <span class="icon"><img src="img/cadeado.png" alt="ícone de cadeado"></span>
+                <input id="input_senha" type="password" onblur="validar_senha()" onkeyup="validar_senha()" placeholder="Senha">
+                <span id="resultado_senha" class="resultado"></span>
+            </div>
+            
+            <div class="input-box">
+                <span class="icon"><img src="img/cadeado.png" alt="ícone de cadeado"></span>
+                <input id="input_senhaC" type="password" onkeyup="validar_senhaC()" placeholder="Confirmar Senha">
+                <span id="resultado_senhaC" class="resultado"></span>
+            </div>
+            <button type="submit" class="btn" onclick="cadastrar()">Cadastrar</button>
 
-                <button type="submit" class="btn">Cadastrar</button>
+            <span id="resultado_cadastro" class="resultado"></span>
 
-                <!-- <div class="btn-login">
-                    <p>Esquece sua conta?<a href="#">Sei la</a></p>
-                </div> -->
-
-            </form>
         </div>
 
     </div>
     
-    <script src="rolagem-header.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>    
+    <script src="js/cadastro.js"></script>
 </body>
 </html>
