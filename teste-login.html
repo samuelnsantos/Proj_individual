@@ -31,16 +31,22 @@
 
         let senha = input_senha.value
         let email = input_email.value
+        validar_senha = false
 
+        for(laco=0; laco<10; laco++){
+            if(senha.indexOf(laco) >= 0){
+                validar_senha = true
+                break;
+            }
+        }
+        if(validar_senha){
+            resultado_senha.innerHTML = `Tem número`
 
-        if (senha == "" ){
-            resultado_senha.innerHTML = `Senha esta vazia`
+        }
+        else{
+            resultado_senha.innerHTML = `não tem número`
+
         }
 
-        if (email == ""){
-            resultado_email.innerHTML = `email esta vazia`
-        }
     }
-
-
 </script>
