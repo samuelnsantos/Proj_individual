@@ -8,9 +8,28 @@
 }
 
 body{
+    background-color: #1a1a1a;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: #f0f0f0;
+}
+
+.container{
+    margin-top: 100px;
+    background-color: #212121;
+    width: 98%;
+    height: 97%;;
+    border-radius: 13px;
+    align-items: center;
+}
+
+.imagem_fundo {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    border-radius: 13px;
+    margin-bottom: 40px;
 
     background-image: url(../img/proveta.jpg);
     background-repeat: no-repeat;  
@@ -18,57 +37,88 @@ body{
     background-position: top
 } /* imagem de fundo */
 
-a img {
-    margin: 20px;
-    margin-left: 165px;
-    height: 90px;
-    border-radius: 100%;
-} /* Imagem da logo */
-
-header{
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    padding: 40px 4%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 99;
-}
-
-.logo{
-    font-size: 30px;
-    color: white;
-    user-select: none;
-}
-
-.navegacao a{
-    position: relative;
-    font-size: 28px;
-    color: #f0f0f0;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 40px;
-}
-
 .navegacao :hover{
     border-radius: 10px;
     text-decoration: underline 2px;
 }
 
+/* Div dos textos*/
+.box-values {
+    /* background-color: #fbf4ea18; */
+    text-align: center;
+    margin-bottom: 3.125rem;
+}
 
-footer {
-    height: 40px;
-    color: #fff;
+.values-content h1,
+/* .box-resenha h1,
+.text-content h1,  */
+.text h1{
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 2.5rem;
+    line-height: 4.375rem;
+
+}
+
+.values-content p,
+.box-resenha p,
+.text p{
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 2.8125rem;
+    margin-bottom: 0.9375rem;
+}
+
+/* div dos quadrados valores */
+.caixinha {
     display: flex;
+    /* justify-content: space-between; */
+    flex-direction: row;
+    gap: 8.75rem;
+    /* margin: 0 70px 10px 70px; */
+}
+
+.caixinha-information  {
+    width: 21.25rem;
+    height: 27.5rem;
+    border-radius: 13px;
+    /* border-radius: 3.125rem 0.1875rem 3.125rem 0.1875rem; */
+    transition: transform 0.5s ease-in-out;transition: transform 0.3s ease;
+}
+.caixinha-information:hover {
+    background-color: #1a1a1a;
+    transform: translateY(20px);
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.text-content {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.text-content p {
+    word-spacing: 3px;
+    padding: 40px;
+    white-space: 20px;
+    font-size: larger;
+    line-height: 1.5;
+
+}
+
+.footer {
+    height: 40px;
     font-size: 15px;
     display: flex;
     justify-content: center;
-    border-radius: 13px;
     background-color: #1a1a1a;
 }
 
-.roda_pe h4 {
-    margin-top: 10px;
+.footer p {
+    padding: 10px;
 }
