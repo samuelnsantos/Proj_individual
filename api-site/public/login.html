@@ -10,37 +10,38 @@
     <title>Login</title>
 </head>
 <body>
-
+ 
     <header id="header">
-        <div class="flex">
-          
-            <nav class="navegacao">
-                <a href="principal.html">Home</a>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo do site" >
+        </div>
+            
+            <div class="navegacao">
+                <a href="index.html">Home</a>
                 <a href="pagina01.html">Conteúdo</a>
                 <a href="sobre_mim.html">Sobre mim</a>
                 <a href="login.html">Login</a>
                 <a href="cadastro.html">Cadastro</a>
-            </nav>
-        </div>
+            </div>
 
     </header>
- 
+
     <div class="container">
         <div class="login-box">
             <h2>Login</h2>
             <form action="#">
                 <div class="input-box">
                     <span class="icon"><img src="img/e-mail.png" alt="ícone de E-mail"></span>
-                    <input id="input_email" type="email" placeholder="Email">
+                    <input id="email_user" type="email" onkeyup="validar_email()" placeholder="Email">
                     <span id="resultado_email" class="resultado"></span> <!--  input do email-->
                 </div>
 
                 <div class="input-box">
                     <span class="icon"><img src="img/cadeado.png" alt="ícone de cadeado"></span>
-                    <input id="input_senha" type="password" placeholder="Senha">
+                    <input id="senha_user" type="password" onkeyup="validar_senha()" placeholder="Senha">
                     <span id="resultado_senha" class="resultado"></span> <!-- input da senha-->
                 </div>
-                <button type="submit" class="btn" onclick="logar()">Login </button> <!--botao login-->
+                <button type="submit" class="btn" onclick="entrar()" >Login </button> <!--botao login-->
             </form>
         </div>
 

@@ -7,19 +7,18 @@
     font-family: sans-serif;
 }
 
-a img {
-    margin: 10px;
-    margin-left: 120px;
+.logo img {
+    width: 100px;
     height: 100px;
-    border-radius: 100%;
-} /* Imagem da logo */
+}
 
 header{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;    
-    padding: 40px 4%;
+
+    padding: 10px 4%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,10 +28,9 @@ header{
 header.rolagem-header{
     background-color: #1a1a1a;
     padding-top: 30px;
-    height: 13%;
+    height: 15%;
     color: #f0f0f0;  
     transition: 0.6s;
-    border-radius: 13px;
 }
 
 .navegacao a{

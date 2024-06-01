@@ -6,9 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>van G.O.A.T | estilos dos usuários</title>
+    <title>Clarestudo| Dashbord</title>
 
-    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="dashboards.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -21,45 +20,27 @@
         rel="stylesheet">
 
 
-    <style>
+    <!-- <style>
         .card {
             display: flex;
         }
 
-    </style>
+    </style> -->
 </head>
 
 <body onload="validarSessao()">
 
     <div class="janela">
 
-
         <div class="header-left dash-header">
+            <h1>van G.O.A.T</h1>
 
-            <h1 style="font-family: 'Satisfy', cursive;">van G.O.A.T</h1>
+            <h2>Olá, usuário!</h2>
 
-            <div class="hello">
-                <h3 style="font-family: 'Satisfy', cursive;">Olá, <span style="font-family: 'Satisfy', cursive;" id="b_usuario">usuário</span>!</h3>
-            </div>
+            <h2>Quadros</h2>
 
-            <div class="btn-nav">
-                <h3 style="font-family: 'Satisfy', cursive;">estilos</h3>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./experiencia.html">
-                    <h3 style="font-family: 'Satisfy', cursive;">Minha Experiência</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
-                    <h3 style="font-family: 'Satisfy', cursive;">Diga algo</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3 style="font-family: 'Satisfy', cursive;">Sair</h3>
+            <div class="btn_sair" onclick="limparSessao()">
+                <h3>Sair</h3>
             </div>
 
         </div>
@@ -67,16 +48,16 @@
         <div id="img_fundo" class="dash" style="height: 100vh;">
             <div class="regua" style="font-family: 'Permanent Marker', cursive;">
                 <div class="item-regua" id="poucoacesso">
-                    <h4 style="font-family: 'Permanent Marker', cursive;">Abaixo da Média</h4>
-                    <h2 style="font-family: 'Permanent Marker', cursive;">Poucos usuários escolhem seu estilo</h2>
+                    <h4>Abaixo da Média</h4>
+                    <h2>Poucos usuários escolhem seu quadro</h2>
                 </div>
                 <div class="item-regua" id="medioacesso">
-                    <h4 style="font-family: 'Permanent Marker', cursive;">Tá na média</h4>
-                    <h2 style="font-family: 'Permanent Marker', cursive;">Frequentemente os usuários escolhem seu estilo</h2>
+                    <h4>Tá na média</h4>
+                    <h2>Frequentemente os usuários escolhem seu quadro</h2>
                 </div>
                 <div class="item-regua" id="muitoacesso" >
-                    <h4 style="font-family: 'Permanent Marker', cursive;">Acima da Média</h4>
-                    <h2 style="font-family: 'Permanent Marker', cursive;">Muitos usuários escolhem seu estilo</h2>
+                    <h4>Acima da Média</h4>
+                    <h2>Muitos usuários escolhem seu quadro</h2>
                 </div><br>
             </div><br><br>
             <div class="grafico" style="width: 60%; margin-left: 20%;">
@@ -89,9 +70,6 @@
 
 </html>
 <script>
-
-    img_fundo.style.backgroundImage = 'url(' + sessionStorage.CAMINHO_IMG + ')';
-
     //  Função aprendida nas aulas de algoritmo, essa função vai fazer a plotagem do gráfico:
     plotargrafico()
     function plotargrafico() {
@@ -101,30 +79,30 @@
 
                 resposta.json().then(json => {
                     console.log(json)
-                    let estilos = json.map(obj => obj.estiloPreferido)  // Essa variável vai buscar a propriedade "estilo Preferido"  
-                    console.log(estilos)    // O Map (Aprendido com Prof. Eduardo) vai percorrer o vetor e trazer apenas os elementos "estilos preferidos"
+                    let quadros = json.map(obj => obj.quadroPreferido)  // Essa variável vai buscar a propriedade "Quadro Preferido"  
+                    console.log(quadros)    // O Map (Aprendido com Prof. Eduardo) vai percorrer o vetor e trazer apenas os elementos "Quadros preferidos"
                     let qtd = json.map(obj => obj.qtd)  //  Da mesma forma, esse vai buscar a quantidade de gráficos que há no site
                     console.log(qtd)
                     let max = Math.max.apply(null, qtd) //  Math que traz valores constantes, um obj do JS
-                        // Estou trazendo os valores maximos, do obg qtd (Que são os estilos que já foram escolhidos)
+                        // Estou trazendo os valores maximos, do obg qtd (Que são os quadros que já foram escolhidos)
 
                     var soma = 0;
                     for (var i = 0; i < qtd.length; i++) {
                         soma = soma + qtd[i]
                     }   //  For para "varrer meu vetor" ele vai continuar enquanto essa condição for verdadeira
                         //  O find é de "Encontrar", logo, ele vai encontrar e me trazer através do obj JSON
-                    let fks = json.find(obj => obj.fkestilos == sessionStorage.FK_estiloS)  //  Buscando a variável de sessão Fk, para trazer os estilos fav do usuario logado
+                    let fks = json.find(obj => obj.fkQuadros == sessionStorage.FK_QUADROS)  //  Buscando a variável de sessão Fk, para trazer os quadros fav do usuario logado
                     var media = (soma / qtd.length).toFixed(2); //  Op mat para fazer a métrica do Analytics
-                    console.log(media)  //  Vou dividir a soma de todos os estilos escolhidos e dividir pelo seu comprimento (length) assim terei a média
+                    console.log(media)  //  Vou dividir a soma de todos os quadros escolhidos e dividir pelo seu comprimento (length) assim terei a média
                     console.log(soma)   //  Após ter a média, posso trazer os alertas para o usuário
                     console.log(qtd.length)
 
                         //  Estrutura de decisão do Analytics (If, else básico)
-                    if (fks.qtd > media) {  //  Caso as fks do estilo do usuário for maior que a média, vai aparecer um aviso notificando isso
+                    if (fks.qtd > media) {  //  Caso as fks do quadro do usuário for maior que a média, vai aparecer um aviso notificando isso
                         muitoacesso.style.display = "block"
-                    } else if (fks.qtd == media) {  //  Caso as fks do estilo do usuário for igual que a média, vai aparecer um aviso notificando isso
+                    } else if (fks.qtd == media) {  //  Caso as fks do quadro do usuário for igual que a média, vai aparecer um aviso notificando isso
                         medioacesso.style.display = "block"
-                    } else if (fks.qtd < media) {   //  Caso as fks do estilo do usuário for menor que a média, vai aparecer um aviso notificando isso
+                    } else if (fks.qtd < media) {   //  Caso as fks do quadro do usuário for menor que a média, vai aparecer um aviso notificando isso
                         poucoacesso.style.display = "block"
                     }
 
@@ -134,10 +112,10 @@
                     const config = {
                         type: 'bar',    //  Tipo: barra
                         data: {
-                            labels: estilos,
+                            labels: quadros,
                             datasets: [ //  Dados do meu gráfico
                                 {
-                                    label: "estiloS PREFERIDOS DOS USUÁRIOS",   //  Esse é o meu título
+                                    label: "QUADROS PREFERIDOS DOS USUÁRIOS",   //  Esse é o meu título
                                     data: qtd,  //  primeiro vetor - sera a quantidade dos gráficos (Preferi trazer o obj jSON) por conta que ele vai trazer apenas os que foram escolhidos, se não, teria que ser colocados todos a mão
                                     color: "#F7DF38",   //  Daqui pra baixo, são estilizações
                                     backgroundColor: "#304473",
