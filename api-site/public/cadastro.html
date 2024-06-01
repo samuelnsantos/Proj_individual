@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+
+    <title>Cadastro</title>
+</head>
+<body>
+
+    <header id="header">
+        <div class="flex">
+          
+            <nav class="navegacao">
+                <a href="principal.html">Home</a>
+                <a href="pagina01.html">Conteúdo</a>
+                <a href="sobre_mim.html">Sobre mim</a>
+                <a href="login.html">Login</a>
+                <a href="cadastro.html">Cadastro</a>
+            </nav>
+        </div>
+
+    </header>
+        
+    <div class="container">
+        <div class="cadastro-box">
+            <h2>Cadastro</h2>
+
+            <div class="input-box">
+                <span class="icon"><img src="img/pessoa.png" alt="ícone de pessoa"></span>
+                <input id="nome_user" type="tel" onkeyup="validar_nome()" placeholder="Nome">
+                <span id="resultado_tel" class="resultado"></span>
+            </div>
+
+            <div class="input-box">
+                <span class="icon"><img src="img/e-mail.png" alt="ícone de E-mail"></span>
+                <input id="email_user" type="text" onkeyup="validar_email()" placeholder="Email">
+                <span id="resultado_email" class="resultado"></span><br>
+            </div>
+            
+            <div class="input-box">
+                <span class="icon"><img src="img/cadeado.png" alt="ícone de cadeado"></span>
+                <input id="senha_user" type="password" onblur="validar_senha()" onkeyup="validar_senha()" placeholder="Senha">
+                <span id="resultado_senha" class="resultado"></span>
+            </div>
+            
+            <div class="input-box">
+                <span class="icon"><img src="img/cadeado.png" alt="ícone de cadeado"></span>
+                <input id="confirmacao_user" type="password" onkeyup="validar_senhaC()" placeholder="Confirmar Senha">
+                <span id="resultado_senhaC" class="resultado"></span>
+            </div>
+
+            <select class="btn" name="estilos" id="estilos_user">
+                <option value="nd">Escolha um estilo que deseja tocar:</option>     <!--Os números, são as FKS-->
+                <option value="1">Jazz</option>
+                <option value="2">Jazz Brasileiro</option>
+                <option value="3">Cool Jazz</option>
+                <option value="4">Choro</option>
+                <option value="5">MPB</option>
+                <option value="6">Bosssa nova</option>
+                <option value="7">Pop</option>
+                <option value="8">Gospel</option>
+                <option value="9">Baião</option>
+                <option value="10">Música Erudita</option>
+                <option value="11">Xote</option>
+                <option value="12">Samba</option>
+            </select>
+            <span id="resultado_estilo" class="resultado"></span>
+
+            <button type="submit" class="btn" onclick="cadastrar()">Cadastrar</button>
+
+
+        </div>
+
+    </div>
+    
+    <script src="js/cadastro.js"></script>
+</body>
+</html>

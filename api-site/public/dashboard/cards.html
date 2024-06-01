@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>van G.O.A.T | estilos dos usuários</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="dashboards.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/funcoes.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Estonia&family=Homemade+Apple&family=Kalam:wght@300;400;700&family=Lobster&family=Montserrat:wght@200;300;500;700&family=Overpass&family=Permanent+Marker&family=Playball&family=Press+Start+2P&family=Righteous&family=Satisfy&family=Varela+Round&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        .card {
+            display: flex;
+        }
+
+    </style>
+</head>
+
+<body onload="validarSessao()">
+
+    <div class="janela">
+
+
+        <div class="header-left dash-header">
+
+            <h1 style="font-family: 'Satisfy', cursive;">van G.O.A.T</h1>
+
+            <div class="hello">
+                <h3 style="font-family: 'Satisfy', cursive;">Olá, <span style="font-family: 'Satisfy', cursive;" id="b_usuario">usuário</span>!</h3>
+            </div>
+
+            <div class="btn-nav">
+                <h3 style="font-family: 'Satisfy', cursive;">estilos</h3>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./experiencia.html">
+                    <h3 style="font-family: 'Satisfy', cursive;">Minha Experiência</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav-white">
+                <a href="./mural.html">
+                    <h3 style="font-family: 'Satisfy', cursive;">Diga algo</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
+                <h3 style="font-family: 'Satisfy', cursive;">Sair</h3>
+            </div>
+
+        </div>
+
+        <div id="img_fundo" class="dash" style="height: 100vh;">
+            <div class="regua" style="font-family: 'Permanent Marker', cursive;">
+                <div class="item-regua" id="poucoacesso">
+                    <h4 style="font-family: 'Permanent Marker', cursive;">Abaixo da Média</h4>
+                    <h2 style="font-family: 'Permanent Marker', cursive;">Poucos usuários escolhem seu estilo</h2>
+                </div>
+                <div class="item-regua" id="medioacesso">
+                    <h4 style="font-family: 'Permanent Marker', cursive;">Tá na média</h4>
+                    <h2 style="font-family: 'Permanent Marker', cursive;">Frequentemente os usuários escolhem seu estilo</h2>
+                </div>
+                <div class="item-regua" id="muitoacesso" >
+                    <h4 style="font-family: 'Permanent Marker', cursive;">Acima da Média</h4>
+                    <h2 style="font-family: 'Permanent Marker', cursive;">Muitos usuários escolhem seu estilo</h2>
+                </div><br>
+            </div><br><br>
+            <div class="grafico" style="width: 60%; margin-left: 20%;">
+                <canvas id="mychart"></canvas>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+
+    img_fundo.style.backgroundImage = 'url(' + sessionStorage.CAMINHO_IMG + ')';
+
+    //  Função aprendida nas aulas de algoritmo, essa função vai fazer a plotagem do gráfico:
+    plotargrafico()
+    function plotargrafico() {
+        fetch("/usuarios/plotargrafico")    //  Fetch aprendido na aula de PI, vai buscar os dados através do objeto JSON  
+            .then(resposta => {
+
+
+                resposta.json().then(json => {
+                    console.log(json)
+                    let estilos = json.map(obj => obj.estiloPreferido)  // Essa variável vai buscar a propriedade "estilo Preferido"  
+                    console.log(estilos)    // O Map (Aprendido com Prof. Eduardo) vai percorrer o vetor e trazer apenas os elementos "estilos preferidos"
+                    let qtd = json.map(obj => obj.qtd)  //  Da mesma forma, esse vai buscar a quantidade de gráficos que há no site
+                    console.log(qtd)
+                    let max = Math.max.apply(null, qtd) //  Math que traz valores constantes, um obj do JS
+                        // Estou trazendo os valores maximos, do obg qtd (Que são os estilos que já foram escolhidos)
+
+                    var soma = 0;
+                    for (var i = 0; i < qtd.length; i++) {
+                        soma = soma + qtd[i]
+                    }   //  For para "varrer meu vetor" ele vai continuar enquanto essa condição for verdadeira
+                        //  O find é de "Encontrar", logo, ele vai encontrar e me trazer através do obj JSON
+                    let fks = json.find(obj => obj.fkestilos == sessionStorage.FK_estiloS)  //  Buscando a variável de sessão Fk, para trazer os estilos fav do usuario logado
+                    var media = (soma / qtd.length).toFixed(2); //  Op mat para fazer a métrica do Analytics
+                    console.log(media)  //  Vou dividir a soma de todos os estilos escolhidos e dividir pelo seu comprimento (length) assim terei a média
+                    console.log(soma)   //  Após ter a média, posso trazer os alertas para o usuário
+                    console.log(qtd.length)
+
+                        //  Estrutura de decisão do Analytics (If, else básico)
+                    if (fks.qtd > media) {  //  Caso as fks do estilo do usuário for maior que a média, vai aparecer um aviso notificando isso
+                        muitoacesso.style.display = "block"
+                    } else if (fks.qtd == media) {  //  Caso as fks do estilo do usuário for igual que a média, vai aparecer um aviso notificando isso
+                        medioacesso.style.display = "block"
+                    } else if (fks.qtd < media) {   //  Caso as fks do estilo do usuário for menor que a média, vai aparecer um aviso notificando isso
+                        poucoacesso.style.display = "block"
+                    }
+
+                    console.log(fks.qtd)
+
+                        //  Criação do Graf
+                    const config = {
+                        type: 'bar',    //  Tipo: barra
+                        data: {
+                            labels: estilos,
+                            datasets: [ //  Dados do meu gráfico
+                                {
+                                    label: "estiloS PREFERIDOS DOS USUÁRIOS",   //  Esse é o meu título
+                                    data: qtd,  //  primeiro vetor - sera a quantidade dos gráficos (Preferi trazer o obj jSON) por conta que ele vai trazer apenas os que foram escolhidos, se não, teria que ser colocados todos a mão
+                                    color: "#F7DF38",   //  Daqui pra baixo, são estilizações
+                                    backgroundColor: "#304473",
+                                    fontSize: 25,
+                                    fontFamily: "'Permanent Marker', cursive;",
+                                    borderColor: "#0B1E38",
+                                    scaleOverride: true,
+                                    scaleSteps: 1,
+                                    scaleStartValue: 0,
+                                    scaleStepWidth: 1
+                                },    
+                            ]
+                        },
+                        options: {  //  Padrão, só peguei igual o do Rafa
+                            maintainAspectRatio: false,
+                            responsive: true,
+
+                            scales: {   //  arrumando as escalas pra máximas e mínimas
+                                y: {
+                                    min: 0,
+                                    max: max + 4,
+                                },
+                                yAxes: {    //  tentando colocar fonte, não deu certo :/ 
+                                    ticks: {
+                                        stepSize: 1,
+                                        fontFamily: "Permanent Marker, cursive",
+                                        fontSize: 20,
+                                    }
+                                },
+                            }
+                        }
+                    }
+                    
+                    var myChartLine = new Chart(document.getElementById("mychart"), config);    //  Criação do chart
+                });
+            })
+    }
+</script>
