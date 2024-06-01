@@ -27,13 +27,13 @@ function validar_nome(){
     let caracteres = `*Seu nome está muito curto`;
     
     if (nome == "" ){
-        resultado_tel.innerHTML = vazio;
+        resultado_nome.innerHTML = vazio;
     }
     else if(nome.length <3){
-        resultado_tel.innerHTML = caracteres;
+        resultado_nome.innerHTML = caracteres;
     }
     else if(nome.length >3){
-        resultado_tel.innerHTML = ``;
+        resultado_nome.innerHTML = ``;
     }
 }
 
@@ -53,7 +53,6 @@ function validar_senha(){
 
     }
 }
-
 
 function validar_senhaC(){
     const senhaC = confirmacao_user.value;
@@ -91,7 +90,7 @@ function cadastrar(){
     let mensagem = "";
     
     if(!nome){
-        resultado_tel.innerHTML = `*Preencha este campo!`;
+        resultado_nome.innerHTML = `*Preencha este campo!`;
 
     }
     if(!email){
@@ -110,6 +109,7 @@ function cadastrar(){
         resultado_estilo.innerHTML = `Você deve selecionar um estilo!`;
     }
     
+
     else{
 
         for(let posicao=0;posicao<=9;posicao++){
@@ -149,16 +149,12 @@ function cadastrar(){
         if (!possui_letraM) {
             mensagem = `Não possui letra maiúscula. `;
         }
-        if (estilo !== "nd"){
-            resultado_estilo.innerHTML = mensagem
-
-        }
 
         resultado_senha.innerHTML = mensagem
         
         if (resultado_senhaC.innerHTML == `` && resultado_senha.innerHTML == `` 
-        && resultado_email.innerHTML ==`` && resultado_tel.innerHTML == ``
-        && resultado_estilo.innerHTML !== "nd"){
+        && resultado_email.innerHTML ==`` && resultado_nome.innerHTML == ``
+        && resultado_estilo.innerHTML == ``){
             alert(`Cadastro concluído`);
 
 
