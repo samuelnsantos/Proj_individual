@@ -2,85 +2,88 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clarestudo| Dashbord</title>
-
+    <link rel="shortcut icon" href="../assets/img/fave.svg" type="image/x-icon">
+    <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="dashboards.css">
+    <title>estilos dos usuários | Eyre</title>
+
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/funcoes.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Estonia&family=Homemade+Apple&family=Kalam:wght@300;400;700&family=Lobster&family=Montserrat:wght@200;300;500;700&family=Overpass&family=Permanent+Marker&family=Playball&family=Press+Start+2P&family=Righteous&family=Satisfy&family=Varela+Round&display=swap"
-        rel="stylesheet">
-
-
-    <!-- <style>
+    <style>
         .card {
             display: flex;
         }
-
-    </style> -->
+    </style>
 </head>
 
 <body onload="validarSessao()">
 
     <div class="janela">
-
         <div class="header-left dash-header">
-            <h1>van G.O.A.T</h1>
+            <center><img src="../img/logo.png" height="150" width=180></center>
 
-            <h2>Olá, usuário!</h2>
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
 
-            <h2>Quadros</h2>
+            <div class="btn-nav">
+                <h3>Gráficos</h3>
+            </div>
 
-            <div class="btn_sair" onclick="limparSessao()">
+            <div class="btn-nav-white">
+                <a href="./experiencia.html">
+                    <h3>estilos</h3>
+                </a>
+            </div>
+
+            <div class="btn-logout" onclick="limparSessao()">
                 <h3>Sair</h3>
             </div>
 
         </div>
 
-        <div id="img_fundo" class="dash" style="height: 100vh;">
-            <div class="regua" style="font-family: 'Permanent Marker', cursive;">
+        <div id="img_fundo" class="dash">
+            <div class="regua">
                 <div class="item-regua" id="poucoacesso">
                     <h4>Abaixo da Média</h4>
-                    <h2>Poucos usuários escolhem seu quadro</h2>
+                    <h2>Poucos usuários escolhem seu livro</h2>
                 </div>
                 <div class="item-regua" id="medioacesso">
                     <h4>Tá na média</h4>
-                    <h2>Frequentemente os usuários escolhem seu quadro</h2>
+                    <h2>Frequentemente os usuários escolhem seu livro</h2>
                 </div>
                 <div class="item-regua" id="muitoacesso" >
                     <h4>Acima da Média</h4>
-                    <h2>Muitos usuários escolhem seu quadro</h2>
+                    <h2>Muitos usuários escolhem seu livro</h2>
                 </div><br>
             </div><br><br>
-            <div class="grafico" style="width: 60%; margin-left: 20%;">
-                <canvas id="mychart"></canvas>
+            <div>
+                <canvas id="myChart"></canvas>
             </div>
         </div>
     </div>
-
 </body>
-
 </html>
+
 <script>
-    //  Função aprendida nas aulas de algoritmo, essa função vai fazer a plotagem do gráfico:
+      const ctx = document.getElementById('myChart'); 
+
+    img_fundo.style.backgroundImage = 'url(' + sessionStorage.CAMINHO_IMG + ')';
+
     plotargrafico()
     function plotargrafico() {
-        fetch("/usuarios/plotargrafico")    //  Fetch aprendido na aula de PI, vai buscar os dados através do objeto JSON  
+        fetch("/usuarios/plotargrafico")   // Fetch - vai buscar os dados através do objeto JSON  
             .then(resposta => {
-
 
                 resposta.json().then(json => {
                     console.log(json)
-                    let quadros = json.map(obj => obj.quadroPreferido)  // Essa variável vai buscar a propriedade "Quadro Preferido"  
-                    console.log(quadros)    // O Map (Aprendido com Prof. Eduardo) vai percorrer o vetor e trazer apenas os elementos "Quadros preferidos"
+                    let estilos = json.map(obj => obj.estiloEscolhido)  // Essa variável vai buscar a propriedade "livro Preferido"  
+                    console.log(estilos)    //  vai percorrer o vetor e trazer apenas os elementos "estilos preferidos"
                     let qtd = json.map(obj => obj.qtd)  //  Da mesma forma, esse vai buscar a quantidade de gráficos que há no site
                     console.log(qtd)
                     let max = Math.max.apply(null, qtd) //  Math que traz valores constantes, um obj do JS
@@ -91,37 +94,37 @@
                         soma = soma + qtd[i]
                     }   //  For para "varrer meu vetor" ele vai continuar enquanto essa condição for verdadeira
                         //  O find é de "Encontrar", logo, ele vai encontrar e me trazer através do obj JSON
-                    let fks = json.find(obj => obj.fkQuadros == sessionStorage.FK_QUADROS)  //  Buscando a variável de sessão Fk, para trazer os quadros fav do usuario logado
+                    let fks = json.find(obj => obj.fkEstilo == sessionStorage.fkEstilo)  //  Buscando a variável de sessão Fk, para trazer os estilos fav do usuario logado
                     var media = (soma / qtd.length).toFixed(2); //  Op mat para fazer a métrica do Analytics
-                    console.log(media)  //  Vou dividir a soma de todos os quadros escolhidos e dividir pelo seu comprimento (length) assim terei a média
+                    console.log(media)  //  Vou dividir a soma de todos os estilos escolhidos e dividir pelo seu comprimento (length) assim terei a média
                     console.log(soma)   //  Após ter a média, posso trazer os alertas para o usuário
                     console.log(qtd.length)
 
                         //  Estrutura de decisão do Analytics (If, else básico)
-                    if (fks.qtd > media) {  //  Caso as fks do quadro do usuário for maior que a média, vai aparecer um aviso notificando isso
+                    if (fks.qtd > media) {  //  Caso as fks do livroo do usuário for maior que a média, vai aparecer um aviso notificando isso
                         muitoacesso.style.display = "block"
-                    } else if (fks.qtd == media) {  //  Caso as fks do quadro do usuário for igual que a média, vai aparecer um aviso notificando isso
+                    } else if (fks.qtd == media) {  //  Caso as fks do livro do usuário for igual que a média, vai aparecer um aviso notificando isso
                         medioacesso.style.display = "block"
-                    } else if (fks.qtd < media) {   //  Caso as fks do quadro do usuário for menor que a média, vai aparecer um aviso notificando isso
+                    } else if (fks.qtd < media) {   //  Caso as fks do livro do usuário for menor que a média, vai aparecer um aviso notificando isso
                         poucoacesso.style.display = "block"
                     }
 
                     console.log(fks.qtd)
 
-                        //  Criação do Graf
-                    const config = {
-                        type: 'bar',    //  Tipo: barra
+                        //  Criação do Grafico
+                     new Chart(ctx, {
+                        type: 'bar',    
                         data: {
-                            labels: quadros,
-                            datasets: [ //  Dados do meu gráfico
+                            labels: estilos,
+                            datasets: [ 
                                 {
-                                    label: "QUADROS PREFERIDOS DOS USUÁRIOS",   //  Esse é o meu título
-                                    data: qtd,  //  primeiro vetor - sera a quantidade dos gráficos (Preferi trazer o obj jSON) por conta que ele vai trazer apenas os que foram escolhidos, se não, teria que ser colocados todos a mão
-                                    color: "#F7DF38",   //  Daqui pra baixo, são estilizações
-                                    backgroundColor: "#304473",
+                                    label: "ESTILOS PREFERIDOS DOS USUÁRIOS",   
+                                    data: qtd,  
+                                    color: "#212121",
+                                    backgroundColor: "#164C5D",
                                     fontSize: 25,
                                     fontFamily: "'Permanent Marker', cursive;",
-                                    borderColor: "#0B1E38",
+                                    borderColor: "#212121",
                                     scaleOverride: true,
                                     scaleSteps: 1,
                                     scaleStartValue: 0,
@@ -129,16 +132,16 @@
                                 },    
                             ]
                         },
-                        options: {  //  Padrão, só peguei igual o do Rafa
+                        options: { 
                             maintainAspectRatio: false,
                             responsive: true,
 
-                            scales: {   //  arrumando as escalas pra máximas e mínimas
+                            scales: {  
                                 y: {
                                     min: 0,
                                     max: max + 4,
                                 },
-                                yAxes: {    //  tentando colocar fonte, não deu certo :/ 
+                                yAxes: {    
                                     ticks: {
                                         stepSize: 1,
                                         fontFamily: "Permanent Marker, cursive",
@@ -147,9 +150,10 @@
                                 },
                             }
                         }
-                    }
+                    })
                     
-                    var myChartLine = new Chart(document.getElementById("mychart"), config);    //  Criação do chart
+                    var myChartLine = new Chart(document.getElementById("mychart"), config);   
+            
                 });
             })
     }

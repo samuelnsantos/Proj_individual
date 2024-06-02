@@ -1,62 +1,40 @@
-function validar_email(){
-    let email = email_user.value;
+// function validar_email(){
+//     let email = email_user.value;
 
-    if(!email){
-        resutlado_senha.innerHTML = `Preencha este campo!`
+//     if(!email){
+//         resutlado_senha.innerHTML = `Preencha este campo!`
 
-    }
-    else if (email.indexOf("@") >= 0 ){
-        resultado_email.innerHTML = `Seu email não possui @`
+//     }
+//     else if (email.indexOf("@") == -1 ){
+//         resultado_email.innerHTML = `Seu email não possui @`
         
-    }
-    else if (email.indexOf(".com") >= 0 ){
-        resultado_email.innerHTML = `Seu email não possui .com`
-    }
+//     }
+//     else if (email.indexOf(".com") == -1){
+//         resultado_email.innerHTML = `Seu email não possui .com`
+//     }
 
-}
+// }
 
-function validar_senha(){
-    let senha = senha_user.value;
+// function validar_senha(){
+//     let senha = senha_user.value;
 
-    if(!senha){
-        resutlado_senha.innerHTML = `Preencha este campo!`
-    }
-}
+//     if(!senha){
+//         resutlado_senha.innerHTML = `Preencha este campo!`
+//     }
+// }
 
 
 function entrar() {
+    aguardar();
 
-    const email = email_user.value;
-    const senha = senha_user.value;
+    var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
 
-    if(!senha){
-        resultado_senha.innerHTML = `Preencha estre campo!`
-    }
-    if(!email){
-        resultado_email.innerHTML = `Preencha estre campo!`
-    }
-    else{
-        finalizarAguardar();
+    console.log("FORM LOGIN: ", formulario.get("login"));
+    console.log("FORM SENHA: ", formulario.get("senha"));
 
-        if (email.indexOf("@") >= 0 ){
-            resultado_email.innerHTML = `Seu email não possui @`
-            finalizarAguardar();
-            
-        }
-        if (email.indexOf(".com") >= 0 ){
-            resultado_email.innerHTML = `Seu email não possui .com`
-            finalizarAguardar();
-        }
-
-        fetch("/usuarios/autenticar", {
+    fetch("/usuarios/autenticar", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({  //  propriedades do meu json
-            email: email,
-            senha: senha,
-        })
+        body: formulario
     }).then(function (resposta) {
         console.log("ESTOU NO THEN DO entrar()!")
 
@@ -65,24 +43,27 @@ function entrar() {
 
             resposta.json().then(json => {
                 console.log(json);
-                console.log(JSON.stringify(json));      //  Minhas varáveis de sessão
-                sessionStorage.EMAIL_USUARIO = json.email;
+                console.log(JSON.stringify(json));
+
+                //  CRIEI VARIÁVEL DE SESSÃO NO JSON PARA PODER USAR POSTERIORMENTE - AULAS DE PI
+                sessionStorage.LOGIN_USUARIO = json.login;
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
-                sessionStorage.FK_QUADROS = json.fkEstilo;
+                sessionStorage.fkEstilo = json.fkEstilo;
+                
 
                 setTimeout(function () {
-                    window.location = "./dashboard/cards.html";
-                }, 1000); // apenas para exibir o loading
-
+                    window.location = "/index.html";
+                }, 1000);
             });
 
         } else {
 
-            console.log("Houve um erro ao tentar realizar o login!");
+            console.log("Erro de login!");
 
             resposta.text().then(texto => {
                 console.error(texto);
+                // limparFormulario();
                 finalizarAguardar(texto);
             });
         }
@@ -92,6 +73,31 @@ function entrar() {
     })
 
     return false;
-    }
+}
 
+function validarSessao() {
+    aguardar();
+
+    //  CRIEI UMA VARIÁVEL DE SESSÃO PARA FICAR ARMAZENADA E CONSEGUIR PUXAR PARA USAR NO MEU GRAF
+    let login = sessionStorage.LOGIN_USUARIO;
+    let nome = sessionStorage.NOME_USUARIO;
+    let fk = sessionStorage.fkEstilo;
+
+    let h1Titulo = document.getElementById("h1_titulo");
+
+    if (login != null && nome != null) {
+        // window.alert(`Seja bem-vindo, ${nome}!`);
+        h1Titulo.innerHTML = `${login}`;
+
+        finalizarAguardar();
+    } else {
+        window.location = "login.html";
+    }
+}
+
+function sair() {
+    aguardar();
+    sessionStorage.clear();
+    finalizarAguardar();
+    window.location = "login.html";
 }

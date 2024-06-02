@@ -76,7 +76,6 @@ function entrar(req, res) {
 
 }
 
-    //  CRIAÇÃO DE VARIÁVEIS - PROF. CAIO
 function cadastrar(req, res) {
     var nome = req.body.nome;
     var email = req.body.email;
@@ -108,7 +107,7 @@ function cadastrar(req, res) {
             );
     }
 }
-    //  CRIAÇÃO DE FUNÇÃO - PROF'S CAIO & RAFA
+
 module.exports = {
     entrar,
     cadastrar,

@@ -18,7 +18,7 @@ router.post("/cadastrar", function (req, res) {
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
-    //  ADICIONEI A NOVA ROTA DE PLOTAR O GRÁFICO, FAZENDO A REQUISIÇÃO E RESPOSTA - ROTAS.. AULAS DE PESQUISA E INOVAÇÃO
+
 router.get("/plotargrafico", function (req, res) {
     usuarioController.plotargrafico(req, res);
 });

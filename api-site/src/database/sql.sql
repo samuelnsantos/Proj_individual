@@ -3,7 +3,8 @@ USE clarestudo;
 
 CREATE TABLE estilo (
 	id INT auto_increment,	
-	estiloPreferido VARCHAR(40),
+	estiloEscolhido VARCHAR(40),
+	caminhoImg VARCHAR(35),
     PRIMARY KEY(id)
 )auto_increment=1;
 
@@ -16,7 +17,7 @@ CREATE TABLE usuario (
 	FOREIGN KEY (fkEstilo) REFERENCES estilo(id)
 )AUTO_INCREMENT=50;
 
-INSERT INTO estilo (id, estiloPreferido) VALUES 	
+INSERT INTO estilo (id, estiloEscolhido) VALUES 	
 (null,'Jazz'),
 (null,'Jazz Brasileiro'),
 (null,'Cool Jazz'),  
