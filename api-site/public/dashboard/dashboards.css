@@ -1,18 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-/* Paleta de cores */
-:root {
-    --blue: #164C5D;
-    --bluezinho: #859AA0;
-    --brow-primary: #271500;
-    --brown: #7F5E3A;
-    --rose: #E0CEBA;
-    --bege: #FFFAF1;
-    --white: #FFFFFF;
-    --cinza-texto: #21272A;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -21,82 +9,14 @@
 
 /* pagina mural */
 body {background-color: #f0f0f0;
-}
-
-/* Começo da dashbord */
-#myChart {
-  width: 37.5rem;
-  border: 1px solid rgba(216, 216, 216, 0.473);
-  margin-bottom:7%;
-
+  background-image: url(../img/fundo\ cinza.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
 }
 
 .dash {
-  /* display: flex;
-  flex-direction: column-reverse;
-  max-width: 80%;
-  width: 60%;
-  position: absolute;
-  top: 0;
-  left: 30%;
-  background-color: red; */
-
 }
-
-#img_fundo {
-  margin: 4% 0;
-  padding: 0 6.875rem;
-  background-color: #f0f0f0;
-  border-radius: 30px;
-  height: 80vh;
-  border: 1px solid #212121;
-
-
-  display: flex;
-  flex-direction: column-reverse;
-  max-width: 80%;
-  width: 60%;
-  position: absolute;
-  top: 0;
-  left: 30%;
-}
-
-/* MENSAGENS DE ACORDO COM O RESULTADO  */
-.regua {
-  display: flex;
-  padding: 3%;
-  font-family: "Poppins", sans-serif; 
-}
-
-.item-regua {
-  text-align: center;
-  width: 60%;
-  border-radius: 13px;
-  margin-left: 20%;
-  padding: 2% 2%;
-  box-shadow: rgba(122, 151, 177, 0.548) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-}
-
-#poucoacesso {
-  display: none;
-  background-color: #c63637;
-}
-
-#medioacesso {
-  display: none;
-  background-color: #ffff65;
-}
-
-#muitoacesso {
-  display: none;
-  background-color: #5CA55C;
-}
-
-
-
-
-
-
 
 /* NAVEGACAO LATERAL */
 .header-left {
@@ -162,4 +82,74 @@ body {background-color: #f0f0f0;
 
 .btn-logout:hover{
   background-color: #161616ec;
+}
+
+/* MENSAGENS DE ACORDO COM O RESULTADO  */
+.regua {
+  display: flex;
+  padding: 3%;
+  font-family: "Poppins", sans-serif; 
+}
+
+.item-regua {
+  text-align: center;
+  width: 70%;
+  height: 105px;
+  border-radius: 13px;
+  margin-left: 20%;
+  padding: 2% 2%;
+  box-shadow: rgba(122, 151, 177, 0.548) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+/* TITULO DA KPI */
+.item-regua h4 {
+  color: #f0f0f0;
+  font-size: 30px;
+}
+/* TEXTO DA KPI */
+.item-regua h2 {
+  color: #f0f0f0;
+  font-size: 18px;
+}
+
+#poucoacesso {
+  display: none;
+  background-color: #c63637;
+}
+
+#medioacesso {
+  display: none;
+  background-color: #ffff65;
+}
+
+#muitoacesso {
+  display: none;
+  background-color: #5CA55C;
+}
+
+
+/* DIV PAO DA DASHBORD */
+#img_fundo {
+  margin: 4% 0;
+  padding: 0 6.875rem;
+  background-color: #f0f0f0;
+  border-radius: 30px;
+  height: 80vh;
+  border: 1px solid #212121;
+
+  display: flex;
+  flex-direction: column-reverse;
+  max-width: 80%;
+  width: 60%;
+  position: absolute;
+  top: 0;
+  left: 30%;
+}
+
+/* CLASS DA DASHBORD*/
+#myChart {
+  width: 37.5rem;
+  border: 1px solid rgba(216, 216, 216, 0.473);
+  margin-bottom:7%;
+
 }

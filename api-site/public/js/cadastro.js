@@ -32,7 +32,7 @@ function validar_nome(){
     else if(nome.length <3){
         resultado_nome.innerHTML = caracteres;
     }
-    else if(nome.length >3){
+    else if(nome.length >=3){
         resultado_nome.innerHTML = ``;
     }
 }
@@ -155,7 +155,6 @@ function cadastrar(){
         if (resultado_senhaC.innerHTML == `` && resultado_senha.innerHTML == `` 
         && resultado_email.innerHTML ==`` && resultado_nome.innerHTML == ``
         && resultado_estilo.innerHTML == ``){
-            alert(`Cadastro concluído`);
 
 
             fetch("/usuarios/cadastrar", {  //  buscando os dados pela rota de cadastrar 
@@ -174,8 +173,7 @@ function cadastrar(){
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {  //  Se estiver tudo certo, ele vai cadastrar e exibir um alert
-                    window.alert(`Usuário cadastrado com sucesso!
-                                Bem-vindo ${nome} :)`);
+                    window.alert(`Cadastrado feito! Bem-vindo ${nome} :)`);
                     window.location = "login.html";
                     finalizarAguardar();
                 } else {
