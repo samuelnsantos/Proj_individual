@@ -13,7 +13,7 @@ function validarSessao() {
         if (h1LoginUsuario != undefined) {
             h1LoginUsuario.innerHTML = email;
         }
-        b_usuario.innerHTML = nome;
+        b_usuario.innerHTML = `${nome}`;
 
         // finalizarAguardar();
     } else {

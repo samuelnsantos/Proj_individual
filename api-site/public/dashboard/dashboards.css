@@ -119,7 +119,7 @@ body {background-color: #f0f0f0;
 
 #medioacesso {
   display: none;
-  background-color: #ffff65;
+  background-color: #ecec0c;
 }
 
 #muitoacesso {
@@ -140,10 +140,10 @@ body {background-color: #f0f0f0;
   display: flex;
   flex-direction: column-reverse;
   max-width: 80%;
-  width: 60%;
+  width: 74.5%;
   position: absolute;
   top: 0;
-  left: 30%;
+  left: 24%;
 }
 
 /* CLASS DA DASHBORD*/
@@ -151,5 +151,4 @@ body {background-color: #f0f0f0;
   width: 37.5rem;
   border: 1px solid rgba(216, 216, 216, 0.473);
   margin-bottom:7%;
-
 }
